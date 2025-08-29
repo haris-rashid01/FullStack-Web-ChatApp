@@ -40,9 +40,9 @@ const ChatContainer = () => {
   if (isMessageLoading) {
     return (
       <div className="flex-1 flex flex-col overflow-auto">
-        <ChatHeader />
-        <MessageSkeleton />
-        <MessageInput />
+        <ChatHeader/>
+        <MessageSkeleton/>
+        <MessageInput/>
       </div>
     );
   }

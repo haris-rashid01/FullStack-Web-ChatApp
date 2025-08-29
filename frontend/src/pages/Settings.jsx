@@ -60,7 +60,7 @@ const SettingsPage = () => {
                     <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-primary-content font-medium">
                       J
                     </div>
-                    <h3 className="font-medium text-sm">John Doe</h3>
+                    <h3 className="font-medium text-sm">Jason Statham</h3>
                     <p className="text-xs text-base-content/70">Online</p>
                   </div>
                 </div>
