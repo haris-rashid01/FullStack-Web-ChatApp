@@ -1,7 +1,7 @@
 {
   "name": "chatapp",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "start": "npm run start --prefix backend",
     "build": "npm install --prefix frontend && npm install --prefix backend && npm run build --prefix frontend"
