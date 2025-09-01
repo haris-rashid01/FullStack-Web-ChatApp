@@ -1,35 +1,25 @@
-import React, { useState } from 'react'
-import { useAuthStore } from '../store/useAuthStore'
-import {
-  EyeOff,
-  Eye,
-  Loader2,
-  Lock,
-  Mail,
-} from "lucide-react";
-import { Link } from 'react-router-dom';
-import AuthImagePattern from '../components/AuthImagePattern';
+import React, { useState } from "react";
+import { useAuthStore } from "../store/useAuthStore";
+import { EyeOff, Eye, Loader2, Lock, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
+import AuthImagePattern from "../components/AuthImagePattern";
 const LoginPage = () => {
-  const {login, isLogggingIn} = useAuthStore()
-  const [showPassword, setShowPassword] = useState(false)
+  const { login, isLogggingIn } = useAuthStore();
+  const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
-    email:"",
-    password:""
-  })
+    email: "",
+    password: "",
+  });
 
-  const handleSubmit = (e)=>{
-    e.preventDefault()
-    login(formData)
-  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    login(formData);
+  };
   return (
     <div className="min-h-screen grid lg:grid-cols-2">
       <div className="flex flex-col justify-center items-center p-6 sm-12">
         <div className="w-full max-w-md space-y-8">
-         
-
           <form onSubmit={handleSubmit} className="space-y-6">
-           
-
             <div className="form-control">
               <label className="label">
                 <span className="label-text font-medium">Email</span>
@@ -97,7 +87,7 @@ const LoginPage = () => {
             </button>
           </form>
           <div className="text-center">
-            <p className="text-base-content/60" to="/signup" >
+            <p className="text-base-content/60" to="/signup">
               Dont have an account{" "}
               <Link to="/signup" className="link link-primary">
                 Create account
@@ -112,7 +102,7 @@ const LoginPage = () => {
         subtitle="Connect with friends, share moments, and stay in touch with your loved ones"
       />
     </div>
-  )
-}
+  );
+};
 
-export default LoginPage
+export default LoginPage;

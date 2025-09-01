@@ -3,6 +3,7 @@ import Message from "../models/message.js";
 import cloudinary from "../lib/cloudinary.js";
 import { getRecieverSocketId } from "../lib/socket.js";
 import { io } from "../lib/socket.js";
+import Group from "../models/group.js"; 
 
 export const getUsersForSidebar = async (req, res) => {
   try {
@@ -68,3 +69,5 @@ export const sendMessage = async (req, res) => {
       .json({ msg: "Internal Server error from sendMessage auth" });
   }
 };
+
+

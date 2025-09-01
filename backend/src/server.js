@@ -1,5 +1,6 @@
 import authRoutes from "./routes/auth.js";
 import messageRoutes from "./routes/message.js";
+import groupRoutes from "./routes/group.js";
 import express from "express";
 import dotenv from "dotenv";
 import { connectDB } from "./lib/db.js";
@@ -31,6 +32,7 @@ if (process.env.NODE_ENV === "production") {
 }
 app.use("/api/auth", authRoutes);
 app.use("/api/message", messageRoutes);
+app.use("/api/groups", groupRoutes);
 
 server.listen(port, () => {
   console.log("Server is listening at " + port);
