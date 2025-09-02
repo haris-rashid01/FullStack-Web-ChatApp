@@ -2,6 +2,7 @@ import { create } from "zustand";
 import toast from "react-hot-toast";
 import { axiosInstance } from "../lib/axios";
 import { useAuthStore } from "./useAuthStore";
+import { showNotification } from "../lib/utils"; // 🔹 import notification helper
 
 export const useChat = create((set, get) => ({
   users: [],
@@ -111,6 +112,7 @@ export const useChat = create((set, get) => ({
       toast.error("Error removing member");
     }
   },
+
   leaveGroup: async (groupId) => {
     try {
       const res = await axiosInstance.put(`/groups/${groupId}/leave`);
@@ -140,6 +142,11 @@ export const useChat = create((set, get) => ({
           newMessage.receiverId === selectedChat._id
         ) {
           set({ messages: [...get().messages, newMessage] });
+
+          showNotification(
+            `New message from ${newMessage.sender?.username || "User"}`,
+            newMessage.text || "You got a new message"
+          );
         }
       });
     } else {
@@ -148,6 +155,11 @@ export const useChat = create((set, get) => ({
       socket.on("receiveGroupMessage", (newMessage) => {
         if (newMessage.groupId === selectedChat._id) {
           set({ messages: [...get().messages, newMessage] });
+
+          showNotification(
+            `New message in ${selectedChat.name || "Group"}`,
+            newMessage.text || "You got a new group message"
+          );
         }
       });
     }

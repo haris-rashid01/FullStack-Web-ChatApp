@@ -11,12 +11,15 @@ import { useEffect } from "react";
 import { Loader } from "lucide-react";
 import { Toaster } from "react-hot-toast";
 import { useTheme } from "./store/useTheme.js";
+import { requestNotificationPermission } from "./lib/utils.js";
 
 function App() {
   const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
   const { theme } = useTheme();
 
-
+  useEffect(() => {
+    requestNotificationPermission();
+  }, []);
   useEffect(() => {
     checkAuth();
   }, [checkAuth]);
