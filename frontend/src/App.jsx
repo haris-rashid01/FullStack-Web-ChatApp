@@ -20,6 +20,7 @@ function App() {
   useEffect(() => {
     requestNotificationPermission();
   }, []);
+  
   useEffect(() => {
     checkAuth();
   }, [checkAuth]);
